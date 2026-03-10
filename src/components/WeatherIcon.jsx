@@ -1,15 +1,16 @@
 import "./WeatherIcon.css";
 
-export const WeatherIcon = (props) => {
+export const WeatherIcon = ({ weather }) => {
   return (
     <>
       <img
-        src={props.weather.imageSrc}
-        alt={props.weather.imageAlt}
+        src={weather.imageSrc}
+        alt={weather.imageAlt}
         className="weather-icon"
       />
 
-      <h2>{props.weather.weatherType}</h2>
+      <h2>{weather.weatherType}</h2>
     </>
   );
 };
+
