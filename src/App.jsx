@@ -3,7 +3,7 @@ import { WeatherIcon } from "./components/WeatherIcon";
 import { sunnyWeather, cloudyWeather } from "./utils/data";
 
 export const App = () => {
-  let sunny = true;
+  const sunny = true;
 
   return (
     <>
