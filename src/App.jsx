@@ -9,7 +9,7 @@ export const App = () => {
   return (
     <>
       <h1>Winc Weather App</h1>
-      <WeatherIcon weather={weather} />
+      {weather && <WeatherIcon weather={weather} />}
     </>
   );
 };
