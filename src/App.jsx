@@ -1,14 +1,15 @@
 import "./App.css";
+import { useState } from "react";
 import { WeatherIcon } from "./components/WeatherIcon";
 import { sunnyWeather, cloudyWeather } from "./utils/data";
 
 export const App = () => {
-  const sunny = true;
+  const [weather, setWeather] = useState(sunnyWeather);
 
   return (
     <>
       <h1>Winc Weather App</h1>
-      <WeatherIcon weather={sunny ? sunnyWeather : cloudyWeather} />
+      <WeatherIcon weather={weather} />
     </>
   );
 };
