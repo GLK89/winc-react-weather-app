@@ -9,3 +9,15 @@ export const cloudyWeather = {
   imageAlt: "Cloudy weather icon",
   weatherType: "Cloudy",
 };
+
+export const rainyWeather = {
+  imageSrc: "/weather-icons/rain.png",
+  imageAlt: "Rainy weather icon",
+  weatherType: "Rainy",
+};
+
+export const snowyWeather = {
+  imageSrc: "/weather-icons/snow.png",
+  imageAlt: "Snowy weather icon",
+  weatherType: "Snowy",
+};
