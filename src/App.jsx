@@ -1,4 +1,11 @@
-import { Heading, Button, Center, Stack, Group } from "@chakra-ui/react";
+import {
+  Heading,
+  Button,
+  Center,
+  Stack,
+  Field,
+  NativeSelect,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { WeatherIcon } from "./components/WeatherIcon";
 import {
@@ -17,6 +24,11 @@ export const App = () => {
     rainyWeather,
     snowyWeather,
   ];
+  const changeWeather = (event) => {
+    event.preventDefault();
+    const weatherIndex = event.target.elements["weather-select"].value;
+    setWeather(weatherObjects[weatherIndex]);
+  };
 
   return (
     <Center h="100vh">
@@ -27,16 +39,29 @@ export const App = () => {
 
         <WeatherIcon weather={weather} />
 
-        <Group>
-          {weatherObjects.map((weatherObject) => (
-            <Button
-              key={weatherObject.weatherType}
-              onClick={() => setWeather(weatherObject)}
-            >
-              {weatherObject.weatherType}
-            </Button>
-          ))}
-        </Group>
+        <form onSubmit={changeWeather}>
+          <Field.Root>
+            <Field.Label>Weather Type</Field.Label>
+
+            <NativeSelect.Root>
+              <NativeSelect.Field name="weather-select">
+                <option value="" disabled>
+                  Select a weather type
+                </option>
+                {""}
+                {weatherObjects.map((weatherObject, index) => (
+                  <option key={index} value={index}>
+                    {weatherObject.weatherType}
+                  </option>
+                ))}
+              </NativeSelect.Field>
+
+              <NativeSelect.Indicator />
+            </NativeSelect.Root>
+          </Field.Root>
+
+          <Button type="submit">Change</Button>
+        </form>
       </Stack>
     </Center>
   );
