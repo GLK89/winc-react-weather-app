@@ -1,12 +1,3 @@
-import {
-  Heading,
-  Button,
-  Center,
-  Stack,
-  Field,
-  NativeSelect,
-} from "@chakra-ui/react";
-import { useState } from "react";
 import { WeatherIcon } from "./components/WeatherIcon";
 import {
   sunnyWeather,
@@ -14,6 +5,15 @@ import {
   rainyWeather,
   snowyWeather,
 } from "./utils/data";
+import { useState } from "react";
+import {
+  Heading,
+  Center,
+  Stack,
+  Field,
+  NativeSelect,
+  Button,
+} from "@chakra-ui/react";
 
 export const App = () => {
   const [weather, setWeather] = useState(sunnyWeather);
@@ -24,6 +24,7 @@ export const App = () => {
     rainyWeather,
     snowyWeather,
   ];
+
   const changeWeather = (event) => {
     event.preventDefault();
     const weatherIndex = event.target.elements["weather-select"].value;
@@ -31,7 +32,7 @@ export const App = () => {
   };
 
   return (
-    <Center h="100vh">
+    <Center height="100vh">
       <Stack align="center" spacing={6}>
         <Heading size="2xl" color="blue.400">
           Winc Weather App
@@ -45,10 +46,8 @@ export const App = () => {
 
             <NativeSelect.Root>
               <NativeSelect.Field name="weather-select">
-                <option value="" disabled>
-                  Select a weather type
-                </option>
-                {""}
+                <option disabled>Select a weather type</option>
+
                 {weatherObjects.map((weatherObject, index) => (
                   <option key={index} value={index}>
                     {weatherObject.weatherType}
@@ -57,10 +56,10 @@ export const App = () => {
               </NativeSelect.Field>
 
               <NativeSelect.Indicator />
+
+              <Button type="submit">Change</Button>
             </NativeSelect.Root>
           </Field.Root>
-
-          <Button type="submit">Change</Button>
         </form>
       </Stack>
     </Center>
