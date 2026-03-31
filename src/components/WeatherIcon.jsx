@@ -1,16 +1,18 @@
-import "./WeatherIcon.css";
+import { Image, Heading, Stack } from "@chakra-ui/react";
 
 export const WeatherIcon = ({ weather }) => {
   return (
-    <>
-      <img
+    <Stack spacing={4} align="center">
+      <Image
         src={weather.imageSrc}
         alt={weather.imageAlt}
-        className="weather-icon"
+        w="200px"
+        h="200px"
       />
 
-      <h2>{weather.weatherType}</h2>
-    </>
+      <Heading size="md" mb={4}>
+        {weather.weatherType}
+      </Heading>
+    </Stack>
   );
 };
-

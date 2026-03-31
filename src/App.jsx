@@ -1,4 +1,4 @@
-import "./App.css";
+import { Heading, Button, Center, Stack, Group } from "@chakra-ui/react";
 import { useState } from "react";
 import { WeatherIcon } from "./components/WeatherIcon";
 import {
@@ -19,20 +19,25 @@ export const App = () => {
   ];
 
   return (
-    <>
-      <h1>Winc Weather App</h1>
-      <WeatherIcon weather={weather} />
+    <Center h="100vh">
+      <Stack align="center" spacing={6}>
+        <Heading size="2xl" color="blue.400">
+          Winc Weather App
+        </Heading>
 
-      <div className="button-container">
-        {weatherObjects.map((weatherObject) => (
-          <button
-            key={weatherObject.weatherType}
-            onClick={() => setWeather(weatherObject)}
-          >
-            {weatherObject.weatherType}
-          </button>
-        ))}
-      </div>
-    </>
+        <WeatherIcon weather={weather} />
+
+        <Group>
+          {weatherObjects.map((weatherObject) => (
+            <Button
+              key={weatherObject.weatherType}
+              onClick={() => setWeather(weatherObject)}
+            >
+              {weatherObject.weatherType}
+            </Button>
+          ))}
+        </Group>
+      </Stack>
+    </Center>
   );
 };
